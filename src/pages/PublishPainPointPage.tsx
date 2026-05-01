@@ -24,11 +24,11 @@ export default function PublishPainPointPage() {
     setSubmitting(true)
 
     const { error: rpcError } = await supabase.rpc('create_pain_point', {
-      author_id: profile.id,
-      title,
-      description,
-      tags,
-      bounty,
+      p_author_id: profile.id,
+      p_title: title,
+      p_description: description,
+      p_tags: tags,
+      p_bounty: bounty,
     })
 
     if (rpcError) {

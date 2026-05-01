@@ -34,7 +34,7 @@ export default function PainPointDetailPage() {
       setLoading(true)
       const { data } = await supabase
         .from('pain_points')
-        .select('*, profiles(nickname, avatar)')
+        .select('*, profiles!pain_points_author_id_fkey(nickname, avatar)')
         .eq('id', id)
         .single()
       if (data) setItem(data as PainPoint)
@@ -57,7 +57,7 @@ export default function PainPointDetailPage() {
       // Refresh item
       const { data } = await supabase
         .from('pain_points')
-        .select('*, profiles(nickname, avatar)')
+        .select('*, profiles!pain_points_author_id_fkey(nickname, avatar)')
         .eq('id', id)
         .single()
       if (data) setItem(data as PainPoint)
@@ -77,7 +77,7 @@ export default function PainPointDetailPage() {
       setActionMessage('已标记解决！')
       const { data } = await supabase
         .from('pain_points')
-        .select('*, profiles(nickname, avatar)')
+        .select('*, profiles!pain_points_author_id_fkey(nickname, avatar)')
         .eq('id', id)
         .single()
       if (data) setItem(data as PainPoint)

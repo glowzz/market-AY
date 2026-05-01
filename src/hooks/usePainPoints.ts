@@ -22,7 +22,7 @@ export function usePainPoints() {
     setLoading(true)
     const { data } = await supabase
       .from('pain_points')
-      .select('*, profiles(nickname, avatar)')
+      .select('*, profiles!pain_points_author_id_fkey(nickname, avatar)')
       .order('created_at', { ascending: false })
     if (data) setItems(data as PainPoint[])
     setLoading(false)

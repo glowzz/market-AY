@@ -21,7 +21,7 @@ interface SolutionRow {
   id: string
   title: string
   votes: number
-  purchase_count: number
+  purchases: number
   profiles: { nickname: string; avatar: string } | null
 }
 
@@ -49,7 +49,7 @@ export default function LeaderboardPage() {
     async function fetchPainPoints() {
       const { data } = await supabase
         .from('pain_points')
-        .select('id, title, votes, bounty, profiles(nickname, avatar)')
+        .select('id, title, votes, bounty, profiles!pain_points_author_id_fkey(nickname, avatar)')
         .order('votes', { ascending: false })
         .limit(10)
       setPainPoints((data as unknown as PainPointRow[]) ?? [])
@@ -58,7 +58,7 @@ export default function LeaderboardPage() {
     async function fetchSolutions() {
       const { data } = await supabase
         .from('solutions')
-        .select('id, title, votes, purchase_count, profiles(nickname, avatar)')
+        .select('id, title, votes, purchases, profiles(nickname, avatar)')
         .order('votes', { ascending: false })
         .limit(10)
       setSolutions((data as unknown as SolutionRow[]) ?? [])
@@ -67,7 +67,7 @@ export default function LeaderboardPage() {
     async function fetchEagleEye() {
       const { data } = await supabase
         .from('pain_points')
-        .select('author_id, profiles(nickname, avatar)')
+        .select('author_id, profiles!pain_points_author_id_fkey(nickname, avatar)')
         .eq('status', 'resolved')
       if (!data) { setEagleEye([]); return }
 
@@ -219,7 +219,7 @@ export default function LeaderboardPage() {
                         <div className="flex-1 min-w-0">
                           <p className="font-bold truncate">{item.title}</p>
                           <p className={`text-xs mt-0.5 ${idx < 3 ? 'opacity-80' : 'text-gray-400'}`}>
-                            {item.profiles?.nickname ?? '匿名'} · 👍 {item.votes} · 🛒 {item.purchase_count ?? 0}次购买
+                            {item.profiles?.nickname ?? '匿名'} · 👍 {item.votes} · 🛒 {item.purchases ?? 0}次购买
                           </p>
                         </div>
                       </div>
