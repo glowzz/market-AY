@@ -43,16 +43,20 @@ export default function PublishPainPointPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-4 pt-12 pb-8">
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="text-2xl mb-3 hover:opacity-80"
-        >
-          ←
-        </button>
-        <h1 className="text-xl font-bold">📢 发布痛点悬赏</h1>
-        <p className="text-red-100 text-sm mt-1">说出你的痛苦，让 AI 来解放你</p>
+      <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-4 py-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="text-2xl hover:opacity-80"
+          >
+            ←
+          </button>
+          <div>
+            <h1 className="text-lg font-bold">📢 发布痛点悬赏</h1>
+            <p className="text-red-100 text-xs">说出你的痛苦，让 AI 来解放你</p>
+          </div>
+        </div>
       </div>
 
       {/* Form */}

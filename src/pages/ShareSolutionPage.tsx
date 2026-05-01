@@ -50,16 +50,20 @@ export default function ShareSolutionPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 pt-12 pb-8">
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="text-2xl mb-3 hover:opacity-80"
-        >
-          ←
-        </button>
-        <h1 className="text-xl font-bold">💡 分享 AI 方案</h1>
-        <p className="text-green-100 text-sm mt-1">分享你用 AI 解决问题的好办法</p>
+      <div className="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="text-2xl hover:opacity-80"
+          >
+            ←
+          </button>
+          <div>
+            <h1 className="text-lg font-bold">💡 分享 AI 方案</h1>
+            <p className="text-green-100 text-xs">分享你用 AI 解决问题的好办法</p>
+          </div>
+        </div>
       </div>
 
       {/* Form */}
