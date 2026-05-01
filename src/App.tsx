@@ -5,6 +5,8 @@ import type { Profile } from './hooks/useAuth'
 import HomePage from './pages/HomePage'
 import PublishPainPointPage from './pages/PublishPainPointPage'
 import ShareSolutionPage from './pages/ShareSolutionPage'
+import PainPointDetailPage from './pages/PainPointDetailPage'
+import SolutionDetailPage from './pages/SolutionDetailPage'
 
 export const ProfileContext = createContext<Profile | null>(null)
 
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/" element={<HomePage profile={profile} onCheckIn={async () => { await refreshProfile() }} />} />
           <Route path="/publish" element={<PublishPainPointPage />} />
           <Route path="/share" element={<ShareSolutionPage />} />
+          <Route path="/pain-point/:id" element={<PainPointDetailPage />} />
+          <Route path="/solution/:id" element={<SolutionDetailPage />} />
         </Routes>
       </BrowserRouter>
     </ProfileContext.Provider>
