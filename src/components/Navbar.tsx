@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import type { Profile } from '../hooks/useAuth'
 
 interface NavbarProps {
@@ -6,6 +7,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({ profile, onCheckIn }: NavbarProps) {
+  const navigate = useNavigate()
+
   return (
     <nav className="hidden sm:flex items-center justify-between px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-lg">
       <div className="text-xl font-bold">
@@ -17,7 +20,7 @@ export default function Navbar({ profile, onCheckIn }: NavbarProps) {
         </span>
         <button
           className="text-sm hover:opacity-80 transition-opacity"
-          onClick={() => window.location.hash = '/leaderboard'}
+          onClick={() => navigate('/leaderboard')}
         >
           📊 榜单
         </button>
