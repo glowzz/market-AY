@@ -4,6 +4,7 @@ import { ProfileContext } from '../App'
 import { supabase } from '../lib/supabase'
 import VoteButton from '../components/VoteButton'
 import CommentSection from '../components/CommentSection'
+import ReactMarkdown from 'react-markdown'
 
 interface SolutionDetail {
   id: string
@@ -120,7 +121,7 @@ export default function SolutionDetailPage() {
   }
 
   const isOwner = profile?.id === item.author_id
-  const canViewContent = isOwner || item.price === 0 || purchased
+  const canViewContent = item.price === 0 || purchased
 
   return (
     <div className="min-h-screen bg-gray-50 pb-8">
@@ -173,16 +174,20 @@ export default function SolutionDetailPage() {
         {/* Content area */}
         <div className="relative bg-white rounded-xl shadow p-4">
           {canViewContent ? (
-            <div className="whitespace-pre-wrap text-gray-700">{item.content}</div>
+            <div className="markdown-content text-gray-700">
+              <ReactMarkdown>{item.content}</ReactMarkdown>
+            </div>
           ) : (
-            <div className="relative">
-              <div className="blur select-none whitespace-pre-wrap text-gray-700">
-                {item.content}
-              </div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/60">
-                <span className="text-4xl mb-2">🔒</span>
-                <span className="text-gray-500 font-medium">购买后查看完整内容</span>
-              </div>
+            <div className="flex flex-col items-center justify-center py-8">
+              <span className="text-5xl mb-4">🔒</span>
+              <p className="text-gray-500 font-medium mb-2">付费内容</p>
+              <p className="text-gray-400 text-sm mb-4">购买后即可查看完整方案</p>
+              <button
+                onClick={handlePurchase}
+                className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-bold text-lg transition-colors shadow-lg"
+              >
+                💰 立即购买 ({item.price} 积分)
+              </button>
             </div>
           )}
         </div>
