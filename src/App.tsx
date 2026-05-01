@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <ProfileContext.Provider value={profile}>
-      <BrowserRouter>
+      <BrowserRouter basename="/market-AY">
         {toast && (
           <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-purple-600 text-white px-6 py-3 rounded-xl shadow-lg text-sm font-medium">
             {toast}
