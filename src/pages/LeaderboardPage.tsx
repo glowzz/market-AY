@@ -128,11 +128,11 @@ export default function LeaderboardPage() {
       )}
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-4 py-3 flex items-center gap-3">
+      <div className="bg-white text-gray-800 px-4 py-2 flex items-center gap-3 border-b border-gray-100">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="text-2xl hover:opacity-80"
+          className="text-2xl hover:opacity-80 text-gray-600"
         >
           ←
         </button>
