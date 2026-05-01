@@ -8,6 +8,7 @@ import ShareSolutionPage from './pages/ShareSolutionPage'
 import PainPointDetailPage from './pages/PainPointDetailPage'
 import SolutionDetailPage from './pages/SolutionDetailPage'
 import LeaderboardPage from './pages/LeaderboardPage'
+import SeedPage from './pages/SeedPage'
 
 export const ProfileContext = createContext<Profile | null>(null)
 
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/pain-point/:id" element={<PainPointDetailPage />} />
           <Route path="/solution/:id" element={<SolutionDetailPage />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/seed" element={<SeedPage />} />
         </Routes>
       </BrowserRouter>
     </ProfileContext.Provider>
