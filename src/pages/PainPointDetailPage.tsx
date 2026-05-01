@@ -113,18 +113,18 @@ export default function PainPointDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-4 pt-12 pb-8">
+      <div className="bg-gradient-to-r from-red-500 to-red-700 text-white px-4 py-3 flex items-center gap-3">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="text-2xl mb-3 hover:opacity-80"
+          className="text-2xl hover:opacity-80"
         >
           ←
         </button>
-        <h1 className="text-xl font-bold">📢 痛点详情</h1>
+        <h1 className="text-lg font-bold">📢 痛点详情</h1>
       </div>
 
-      <div className="px-4 -mt-4 max-w-lg mx-auto space-y-4">
+      <div className="px-4 mt-4 max-w-lg mx-auto space-y-4">
         {/* Author info */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-lg">

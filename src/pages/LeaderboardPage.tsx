@@ -128,15 +128,15 @@ export default function LeaderboardPage() {
       )}
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-4 pt-12 pb-6">
+      <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-4 py-3 flex items-center gap-3">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="text-2xl mb-3 hover:opacity-80"
+          className="text-2xl hover:opacity-80"
         >
           ←
         </button>
-        <h1 className="text-xl font-bold">📊 热度榜单</h1>
+        <h1 className="text-lg font-bold">📊 热度榜单</h1>
       </div>
 
       {/* Tab bar */}
